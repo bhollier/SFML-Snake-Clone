@@ -11,8 +11,11 @@
 //Load Game Assets:
 void Game::loadAssets()
 {
+    //Create temporary object:
     sf::Font temp;
+    //Load a the impact font:
     temp.loadFromFile("Impact.ttf");
+    //Set the default parameters:
     gameFPS.setFont(temp);
     gameFPS.setColour(sf::Color::Black);
     gameFPS.setCharacterSize(16);
@@ -26,20 +29,22 @@ void Game::handleInput()
 
     while (window.pollEvent(event))
     {
-        if (event.type == sf::Event::Closed) {window.close();}
-        else if (event.type == sf::Event::GainedFocus) {windowInFocus = true;}
-        else if (event.type == sf::Event::LostFocus) {windowInFocus = false;}
+        //If-Else of events:
+        if (event.type == sf::Event::Closed) {window.close();} //Close the window
+        else if (event.type == sf::Event::GainedFocus) {windowInFocus = true;} //Window is in-focus
+        else if (event.type == sf::Event::LostFocus) {windowInFocus = false;} //Window is out of focuse
         else if (event.type == sf::Event::KeyPressed)
         {
             if (windowInFocus)
             {
-                if (event.key.code == sf::Keyboard::Escape) {window.close();}
+                if (event.key.code == sf::Keyboard::Escape) {window.close();} //Close the program on 'Esc'
             }
         }
     }
 
-    if (windowInFocus)
+    if (windowInFocus) //Get key presses as long as the window is infocus:
     {
+        //Move Up, Down, Left and Right with WASD or the arrows:
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) || (sf::Keyboard::isKeyPressed(sf::Keyboard::W)))
         {
             snake.changeDirection(up);
@@ -85,5 +90,6 @@ Game::Game()
     //Set the framerate limit to 60 fps:
     window.setFramerateLimit(60);
 
+    //Load files:
     loadAssets();
 }
