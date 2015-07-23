@@ -10,6 +10,7 @@
 
 int main()
 {
+    //Seed the random generator:
     srand(time(NULL));
     //Create a game object:
     Game game;
