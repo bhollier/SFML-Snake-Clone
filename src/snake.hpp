@@ -6,8 +6,6 @@
 #include <vector>
 //SFML Headers:
 #include <SFML/Graphics.hpp>
-//Multi threading:
-#include <omp.h>
 
 enum direction {up, down, right, left, none};
 
