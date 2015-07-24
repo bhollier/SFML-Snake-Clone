@@ -68,21 +68,6 @@ class Snake
                     {
                         snakeBodyPartLocations.at(i) = snakeBodyPartLocations.at(i - 1);
                     }
-                    
-                    //Check if the snake has collided with something:
-                    //If any of the body parts collide with the border:
-                    if ((snakeBodyPartLocations.at(i).x < 1) || (snakeBodyPartLocations.at(i).x > 38) ||
-                        (snakeBodyPartLocations.at(i).y < 1) || (snakeBodyPartLocations.at(i).y > 38))
-                    {
-                        reset(); //Reset the grid
-                    }
-                    
-                    //If any of the body parts collide with the snake's head:
-                    if ((i != 0) && (snakeBodyPartLocations.at(0).x == snakeBodyPartLocations.at(i).x) &&
-                        (snakeBodyPartLocations.at(0).y == snakeBodyPartLocations.at(i).y))
-                    {
-                        reset(); //Reset the grid
-                    }
                 }
 
                 //If the snake's head hit the apple:
@@ -102,7 +87,7 @@ class Snake
                     }
 
                     //Grow the Snake:
-                    //If the snake is one pixel, create a new body part 
+                    //If the snake is one pixel, create a new body part
                     //in the direction opposite to where it's moving:
                     if (snakeBodyPartLocations.size() == 1)
                     {
@@ -113,7 +98,7 @@ class Snake
                         else if (snakeDirection == left) {tailLocation.x = tailLocation.x - 1;}
                         snakeBodyPartLocations.push_back(tailLocation);
                     }
-                    //If the snake is larger than one pixel, create a body part 
+                    //If the snake is larger than one pixel, create a body part
                     //that follows the pattern the snake is moving in:
                     else
                     {
@@ -123,6 +108,24 @@ class Snake
                         else if (snakeBodyPartLocations.at(snakeBodyPartLocations.size() - 2).y == tailLocation.y + 1) {tailLocation.y = tailLocation.y - 1;}
                         else if (snakeBodyPartLocations.at(snakeBodyPartLocations.size() - 2).y == tailLocation.y - 1) {tailLocation.y = tailLocation.y + 1;}
                         snakeBodyPartLocations.push_back(tailLocation);
+                    }
+                }
+
+                //Check if the snake has collided with something:
+                for (int i = signed(snakeBodyPartLocations.size() - 1); i >= 0; --i)
+                {
+                    //If any of the body parts collide with the border:
+                    if ((snakeBodyPartLocations.at(i).x < 1) || (snakeBodyPartLocations.at(i).x > 38) ||
+                        (snakeBodyPartLocations.at(i).y < 1) || (snakeBodyPartLocations.at(i).y > 38))
+                    {
+                        reset(); //Reset the grid
+                    }
+
+                    //If any of the body parts collide with the snake's head:
+                    if ((i != 0) && (snakeBodyPartLocations.at(0).x == snakeBodyPartLocations.at(i).x) &&
+                        (snakeBodyPartLocations.at(0).y == snakeBodyPartLocations.at(i).y))
+                    {
+                        reset(); //Reset the grid
                     }
                 }
 
