@@ -1,14 +1,14 @@
-# SFML-Snake-Clone
+## SFML-Snake-Clone
 A very simple snake clone, written in C++ and SFML
 
-#Requirements
+### Requirements
 - SFML 2.0
 - A C++11 Compiler
 
-#Controls
+### Controls
 - WASD/Arrow Keys to move
 
-#Key
+### Key
 - Red = Apple (food)
 - Green = Snake
 - Black = Border
