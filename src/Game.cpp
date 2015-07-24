@@ -38,6 +38,7 @@ void Game::handleInput()
             if (windowInFocus)
             {
                 if (event.key.code == sf::Keyboard::Escape) {window.close();} //Close the program on 'Esc'
+                else if ((event.key.code == sf::Keyboard::P) || (event.key.code == sf::Keyboard::Pause)) {snake.pause();} //Pause the game on 'P' or 'Pause'
             }
         }
     }
