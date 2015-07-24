@@ -20,6 +20,8 @@ class Snake
         //Location of apple:
         sf::Vector2f appleLocation;
 
+        bool pauseGame = false;
+
         //So the snake doesn't move slower/faster depending on the framerate:
         sf::Clock snakeMoveClock;
         //Vector of each pixel of snake body parts:
@@ -41,12 +43,14 @@ class Snake
                 snakeDirection = newSnakeDirection;
             }
         }
+        //Invert the bool:
+        void pause() {pauseGame = !pauseGame;}
 
         void update()
         {
             sf::Time elapsedTime = snakeMoveClock.getElapsedTime();
-            //Update every 150ms:
-            if (elapsedTime.asMilliseconds() >= 150)
+            //Update every 150ms, unless the game is paused:
+            if ((elapsedTime.asMilliseconds() >= 150) && (!pauseGame))
             {
                 //Go through every body part and move:
                 for (int i = signed(snakeBodyPartLocations.size() - 1); i >= 0; --i)
