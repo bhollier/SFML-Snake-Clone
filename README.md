@@ -2,7 +2,7 @@
 A very simple snake clone, written in C++ and SFML
 
 #Requirements
-- SFML 2.O
+- SFML 2.0
 - A C++11 Compiler
 
 #Controls
