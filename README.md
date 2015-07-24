@@ -7,6 +7,7 @@ A very simple snake clone, written in C++ and SFML
 
 ### Controls
 - WASD/Arrow Keys to move
+- P/Pause to pause/unpause the game
 
 ### Key
 - Red = Apple (food)
